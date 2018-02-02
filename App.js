@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 
 // File Imports
 import Counter from './Counter';
+import StopBtn from './StopBtn';
 
 export default class App extends React.Component {
 
@@ -18,7 +19,7 @@ export default class App extends React.Component {
         <Counter color={'lightblue'} size={100} isCounting={isCounting} />
         <Counter color={'white'} size={110} isCounting={isCounting} />
         <Counter color={'mistyrose'} size={120} isCounting={isCounting} />
-        <Counter color={'lightgrey'} size={130} isCounting={isCounting} />
+        <StopBtn />
       </View>
     );
   }
