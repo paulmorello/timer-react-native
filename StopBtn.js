@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { StyleSheet, Button, Switch } from 'react-native'
+import { StyleSheet, Button, Switch, View } from 'react-native'
+import { FloatingAction } from 'react-native-floating-action';
 
 class StopBtn extends Component {
 
@@ -16,19 +17,19 @@ class StopBtn extends Component {
   render() {
 
     return (
-      <Button
-        style={styles.button}
-        onPress={this.handleSubmit}
-        title="Stop"
-        color={'white'} />
+      <FloatingAction
+      onPressItem={
+        () => {
+          console.log('selected button');
+        }
+      } />
     )
   }
 }
 
 const styles = StyleSheet.create({
   button: {
-    alignItems: 'center',
-    justifyContent: 'center',
+    textAlign: 'right',
   }
 });
 
