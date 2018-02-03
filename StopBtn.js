@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StyleSheet, Button, Switch, View } from 'react-native'
+import { StyleSheet, Button, Text, View, TouchableHighlight } from 'react-native'
 import { FloatingAction } from 'react-native-floating-action';
 
 class StopBtn extends Component {
@@ -17,19 +17,28 @@ class StopBtn extends Component {
   render() {
 
     return (
-      <FloatingAction
-      onPressItem={
-        () => {
-          console.log('selected button');
-        }
-      } />
+      <View>
+        <TouchableHighlight
+          style={styles.button}
+          onPress={this.handleSubmit}
+        >
+          <Text style={[styles.text]}> STOP </Text>
+        </TouchableHighlight>
+      </View>
     )
   }
 }
 
 const styles = StyleSheet.create({
   button: {
-    textAlign: 'right',
+    alignItems: 'center',
+    backgroundColor: '#BB254F',
+    padding: 20,
+    width: 300,
+  },
+  text: {
+    color: 'white',
+    fontSize: 25,
   }
 });
 
