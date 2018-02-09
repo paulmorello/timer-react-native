@@ -6,14 +6,6 @@ class StopBtn extends Component {
 
   constructor(props) {
     super(props);
-
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleSubmit() {
-    console.log(this.props);
-    console.log(this.props.isCounting);
-
   }
 
   render() {
@@ -22,7 +14,7 @@ class StopBtn extends Component {
       <View>
         <TouchableHighlight
           style={styles.button}
-          onPress={this.handleSubmit}
+          onPress={ this.props.stopCounting }
         >
           <Text style={[styles.text]}> STOP </Text>
         </TouchableHighlight>

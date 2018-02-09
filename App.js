@@ -7,12 +7,18 @@ import StopBtn from './StopBtn';
 
 export default class App extends React.Component {
 
-  state = {
-    isCounting: true
+  constructor() {
+    super();
+
+    this.handler = this.handler.bind(this);
+
+    this.state = {
+      isCounting: true
+    }
   }
 
-  stopCounting() {
-    console.log(this.state);
+  handler() {
+    this.setState({ isCounting: false })
   }
 
   render() {
@@ -23,7 +29,7 @@ export default class App extends React.Component {
         <Counter color={'lightblue'} size={100} isCounting={isCounting} />
         <Counter color={'white'} size={110} isCounting={isCounting} />
         <Counter color={'mistyrose'} size={120} isCounting={isCounting} />
-        <StopBtn isCounting={isCounting} stopCounting={this.stopCounting} />
+        <StopBtn isCounting={isCounting} stopCounting={this.handler} />
       </View>
     );
   }
