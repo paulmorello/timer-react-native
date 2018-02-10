@@ -18,7 +18,11 @@ export default class App extends React.Component {
   }
 
   handler() {
-    this.setState({ isCounting: false })
+    if (this.state.isCounting) {
+      this.setState({ isCounting: false })
+    } else {
+      this.setState({ isCounting: true })
+    }
   }
 
   render() {
