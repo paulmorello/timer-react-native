@@ -10,6 +10,7 @@ export default class App extends React.Component {
   constructor() {
     super();
 
+    // bind the instance of this to the this.handler method
     this.handler = this.handler.bind(this);
 
     this.state = {
@@ -18,6 +19,7 @@ export default class App extends React.Component {
   }
 
   handler() {
+    // check if counting to stop counter
     if (this.state.isCounting) {
       this.setState({ isCounting: false })
     } else {
