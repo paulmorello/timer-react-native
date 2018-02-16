@@ -9,8 +9,19 @@ export default class App extends React.Component {
   constructor() {
     super();
 
+    this.stopCounting = this.stopCounting.bind(this);
+
     this.state = {
-      isCounting: false
+      isCounting: true
+    }
+  }
+
+  stopCounting() {
+    // check if counting to stop counter
+    if (this.state.isCounting) {
+      this.setState({ isCounting: false })
+    } else {
+      this.setState({ isCounting: true })
     }
   }
 
@@ -19,7 +30,11 @@ export default class App extends React.Component {
 
     return (
       <View style={styles.container}>
-        <Counter color={'lightblue'} size={100} isCounting={isCounting} />
+        <Counter
+          color={'lightblue'}
+          size={100}
+          isCounting={isCounting}
+          stopCounting={this.stopCounting} />
       </View>
     );
   }

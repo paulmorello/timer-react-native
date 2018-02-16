@@ -7,8 +7,12 @@ import ResetBtn from './ResetBtn';
 
 class Counter extends Component {
 
-  state = {
-    count: 0
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      count: 0
+    }
   }
 
   componentDidMount() {
@@ -16,15 +20,6 @@ class Counter extends Component {
     setInterval( () => {
       this.setState({ count: this.state.count + 1 })
     }, 1000)
-  }
-
-  stopCounting() {
-    // check if counting to stop counter
-    if (this.state.isCounting) {
-      this.setState({ isCounting: false })
-    } else {
-      this.setState({ isCounting: true })
-    }
   }
 
   render() {
@@ -37,7 +32,7 @@ class Counter extends Component {
           <Text style={{ color: color, fontSize: size }}>
             {count}
           </Text>
-          <StopBtn />
+          <StopBtn stopCounting={this.props.stopCounting} />
           <ResetBtn />
         </View>
       )
@@ -47,7 +42,7 @@ class Counter extends Component {
           <Text style={{ color: color, fontSize: size }}>
             {0}
           </Text>
-          <StopBtn />
+          <StopBtn stopCounting={this.props.stopCounting} />
           <ResetBtn />
         </View>
       )
