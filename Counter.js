@@ -17,36 +17,28 @@ class Counter extends Component {
 
   componentDidMount() {
     // Increasing the count by one each second
-    setInterval( () => {
+    let countInt = setInterval( () => {
       this.setState({ count: this.state.count + 1 })
     }, 1000)
+  }
+
+  componentWillReceiveProps() {
+
   }
 
   render() {
     const { count } = this.state;
     const { color, size, isCounting } = this.props;
 
-    if (isCounting) {
-      return (
-        <View style={styles.container}>
-          <Text style={{ color: color, fontSize: size }}>
-            {count}
-          </Text>
-          <StopBtn stopCounting={this.props.stopCounting} />
-          <ResetBtn />
-        </View>
-      )
-    } else {
-      return (
-        <View style={styles.container}>
-          <Text style={{ color: color, fontSize: size }}>
-            {0}
-          </Text>
-          <StopBtn stopCounting={this.props.stopCounting} />
-          <ResetBtn />
-        </View>
-      )
-    }
+    return (
+      <View style={styles.container}>
+        <Text style={{ color: color, fontSize: size }}>
+          {count}
+        </Text>
+        <StopBtn stopCounting={this.props.stopCounting} />
+        <ResetBtn />
+      </View>
+    )
   }
 }
 
