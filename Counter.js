@@ -33,7 +33,7 @@ class Counter extends Component {
 
     if (isCounting) {
       return (
-        <View>
+        <View style={styles.container}>
           <Text style={{ color: color, fontSize: size }}>
             {count}
           </Text>
@@ -43,7 +43,7 @@ class Counter extends Component {
       )
     } else {
       return (
-        <View>
+        <View style={styles.container}>
           <Text style={{ color: color, fontSize: size }}>
             {0}
           </Text>
