@@ -22,7 +22,16 @@ class Counter extends Component {
     }, 1000)
   }
 
-  componentWillReceiveProps() {
+  shouldComponentUpdate(nextProps, nextState) {
+    if (nextProps.isCounting !== this.props.isCounting) {
+      return true
+    } else {
+      return false
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    console.log(nextProps);
 
   }
 

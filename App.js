@@ -12,7 +12,7 @@ export default class App extends React.Component {
     this.stopCounting = this.stopCounting.bind(this);
 
     this.state = {
-      isCounting: true
+      isCounting: false
     }
   }
 
