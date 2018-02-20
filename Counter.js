@@ -17,7 +17,7 @@ class Counter extends Component {
 
   componentDidMount() {
     // Increasing the count by one each second
-    let countInt = setInterval( () => {
+    this.countTimer = setInterval( () => {
       this.setState({ count: this.state.count + 1 })
     }, 1000)
   }
@@ -31,8 +31,24 @@ class Counter extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps);
 
+    if (!nextProps.isCounting) {
+      this.setState({ count: this.state.count });
+    } else {
+      this,countTimer = setInterval( () => {
+        this.setState({ count: this.state.count + 1 })
+      }, 1000)
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log(prevProps);
+
+    if (!prevProps.isCounting) {
+      clearInterval(this.countTimer)
+    } else {
+
+    }
   }
 
   render() {
@@ -44,8 +60,10 @@ class Counter extends Component {
         <Text style={{ color: color, fontSize: size }}>
           {count}
         </Text>
-        <StopBtn stopCounting={this.props.stopCounting} />
-        <ResetBtn />
+        <View style={styles.buttons}>
+          <StopBtn stopCounting={this.props.stopCounting} />
+          <ResetBtn />
+        </View>
       </View>
     )
   }
@@ -57,6 +75,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#227EFF',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  buttons: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
   }
 });
 

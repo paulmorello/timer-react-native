@@ -28,11 +28,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'lightgrey',
     padding: 18,
-    width: 300,
+    width: 100,
   },
   text: {
     color: 'white',
-    fontSize: 25,
+    fontSize: 15,
   }
 });
 
