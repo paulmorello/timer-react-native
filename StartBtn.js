@@ -14,7 +14,7 @@ class StartBtn extends Component {
       <View>
         <TouchableHighlight
           style={styles.button}
-          onPress={ this.props.stopCounting }
+          onPress={ this.props.startCounting }
         >
           <Text style={[styles.text]}> START </Text>
         </TouchableHighlight>
