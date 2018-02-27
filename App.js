@@ -23,6 +23,7 @@ export default class App extends React.Component {
     } else {
       this.setState({ isCounting: true })
     }
+    console.log(this.state.isCounting);
   }
 
   render() {
