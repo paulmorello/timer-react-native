@@ -10,42 +10,10 @@ class Counter extends Component {
 
   constructor(props) {
     super(props);
-
-    this.state = {
-      count: 0
-    }
-  }
-
-  componentDidMount() {
-    console.log(this.countTimer, this.state.count);
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    if (nextProps.isCounting !== this.props.isCounting) {
-      return true
-    } else {
-      return false
-    }
-  }
-
-  componentWillReceiveProps(nextProps) {
-
-    if (!nextProps.isCounting) {
-      clearInterval(this.countTimer)
-    } else {
-      this.countTimer = setInterval( () => {
-        this.setState({ count: this.state.count + 1 })
-      }, 1000)
-    }
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-
   }
 
   render() {
-    const { count } = this.state;
-    const { color, size, isCounting } = this.props;
+    const { color, size, isCounting, count } = this.props;
 
     return (
       <View style={styles.container}>

@@ -12,8 +12,15 @@ export default class App extends React.Component {
     this.startCounting = this.startCounting.bind(this);
 
     this.state = {
-      isCounting: false
+      isCounting: false,
+      count: 0
     }
+  }
+
+  componentDidMount() {
+    setInterval( () => {
+      this.setState({ count: this.state.count + 1 })
+    }, 1000)
   }
 
   startCounting() {
@@ -23,10 +30,10 @@ export default class App extends React.Component {
     } else {
       this.setState({ isCounting: true })
     }
-    console.log(this.state.isCounting);
   }
 
   render() {
+    const { count } = this.state;
     const { isCounting } = this.state;
 
     return (
@@ -35,6 +42,7 @@ export default class App extends React.Component {
           color={'lightblue'}
           size={100}
           isCounting={isCounting}
+          count={count}
           startCounting={this.startCounting} />
       </View>
     );
