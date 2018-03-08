@@ -23,7 +23,7 @@ class Counter extends Component {
         <View style={styles.buttons}>
           <StartBtn startCounting={ this.props.startCounting } />
           <StopBtn />
-          <ResetBtn />
+          <ResetBtn resetCounter={ this.props.resetCounter }/>
         </View>
       </View>
     )

@@ -14,7 +14,7 @@ class ResetBtn extends Component {
       <View>
         <TouchableHighlight
           style={styles.button}
-          onPress={ this.props.resetCounting }
+          onPress={ this.props.resetCounter }
         >
           <Text style={[styles.text]}> RESET </Text>
         </TouchableHighlight>

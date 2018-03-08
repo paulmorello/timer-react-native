@@ -10,10 +10,12 @@ export default class App extends React.Component {
     super();
 
     this.startCounting = this.startCounting.bind(this);
+    this.resetCounter = this.resetCounter.bind(this);
 
     this.state = {
       isCounting: false,
-      count: 0
+      count: 0,
+      message: '',
     }
   }
 
@@ -24,19 +26,25 @@ export default class App extends React.Component {
   }
 
   startCounting() {
-    // check if counting to stop and start counter
-    if (this.state.isCounting) {
-      this.setState({ isCounting: false })
-    } else {
+    if (!this.state.isCounting) {
+      this.countTimer = setInterval( () => {
+        this.setState({ count: this.state.count + 1 })
+      }, 1000)
       this.setState({ isCounting: true })
+    } else {
+      this.setState({ message: 'Press stop to stop the counter or reset to reset the counter to 0'})
     }
+    console.log(this.countTimer, this.state.count);
   }
 
   resetCounter() {
     console.log(this.countTimer);
     clearInterval(this.countTimer);
 
-    this.setState({ count: 0 })
+    this.setState({
+      count: 0,
+      isCounting: false
+     })
   }
 
   render() {
