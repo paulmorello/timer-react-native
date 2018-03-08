@@ -18,7 +18,7 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    setInterval( () => {
+    this.countTimer = setInterval( () => {
       this.setState({ count: this.state.count + 1 })
     }, 1000)
   }
@@ -32,6 +32,13 @@ export default class App extends React.Component {
     }
   }
 
+  resetCounter() {
+    console.log(this.countTimer);
+    clearInterval(this.countTimer);
+
+    this.setState({ count: 0 })
+  }
+
   render() {
     const { count } = this.state;
     const { isCounting } = this.state;
@@ -43,7 +50,8 @@ export default class App extends React.Component {
           size={100}
           isCounting={isCounting}
           count={count}
-          startCounting={this.startCounting} />
+          startCounting={this.startCounting}
+          resetCounter={this.resetCounter} />
       </View>
     );
   }
