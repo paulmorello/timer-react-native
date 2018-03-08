@@ -48,7 +48,7 @@ export default class App extends React.Component {
   }
 
   render() {
-    const { count } = this.state;
+    const { count, message } = this.state;
     const { isCounting } = this.state;
 
     return (
@@ -58,6 +58,7 @@ export default class App extends React.Component {
           size={100}
           isCounting={isCounting}
           count={count}
+          message={message}
           startCounting={this.startCounting}
           resetCounter={this.resetCounter} />
       </View>

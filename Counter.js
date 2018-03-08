@@ -13,7 +13,7 @@ class Counter extends Component {
   }
 
   render() {
-    const { color, size, isCounting, count } = this.props;
+    const { color, size, isCounting, count, message } = this.props;
 
     return (
       <View style={styles.container}>
@@ -25,6 +25,9 @@ class Counter extends Component {
           <StopBtn />
           <ResetBtn resetCounter={ this.props.resetCounter }/>
         </View>
+        <Text>
+          {message}
+        </Text>
       </View>
     )
   }
