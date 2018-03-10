@@ -25,9 +25,9 @@ class Counter extends Component {
           <StopBtn />
           <ResetBtn resetCounter={ this.props.resetCounter }/>
         </View>
-        <Text style={styles.message}>
-          {message}
-        </Text>
+        <View style={styles.messageContainer}>
+          <Text style={styles.message}>{message}</Text>
+        </View>
       </View>
     )
   }
@@ -45,8 +45,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  messageContainer: {
+    justifyContent: 'center',
+    flexDirection: 'row',
+  },
   message: {
-    color: 'white',
+    color: '#227EFF',
+    fontSize: 18,
+    marginTop: 40,
+    padding: 20,
+    backgroundColor: 'whitesmoke',
   }
 });
 
